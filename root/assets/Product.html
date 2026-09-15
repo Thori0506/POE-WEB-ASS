@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+    <link rel="stylesheet" href="../css/stylesheet.css" >
+</head>
+<body style="background-color: cornsilk;">
+
+    <nav>
+    <div style="text-align: center; margin-bottom: 25px;">
+    <img src="../images/logo.webp" alt="Into Yarn logo" style= "width: 140px; height: auto;">
+    </div>
+
+        <a href="Home.html" style="font-size: 30px; text-align: center;">Homepage</a>
+        <a href="About-us.html" style="font-size: 30px; text-align: center;">About-us</a>
+        <a href="Product.html" style="font-size: 30px; text-align: center;">Product</a>
+        <a href="Contact-us.html" style="font-size: 30px; text-align: center;">Contact-us</a>
+        <a href="Enquiry.html" style="font-size: 30px; text-align: center;">Enquiry</a>
+    </nav>
+
+   <div class="container">
+        <h1 style="text-align: center;">Our Products</h1>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
+
+        <!-- Product 1 -->
+        <div style="text-align: center;">
+            <img src="../images/R (1).jpg" alt="Rainbow yarn" style="width: 250px; height: 250px; object-fit: cover;">
+            <p>R219</p>
+            <button class="add-btn" onclick="addToCart('Rainbow Yarn', 219, '../images/R (1).jpg')">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product 2 -->
+        <div style="text-align: center;">
+            <img src="../images/yarn2.jpg" alt="Pink yarn" style="width: 250px; height: 250px; object-fit: cover;">
+            <p>R260</p>
+            <button class="add-btn" onclick="addToCart('Pink Yarn', 260, '../images/yarn2.jpg')">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product 3 -->
+        <div style="text-align: center;">
+            <img src="../images/yarn-85.jpg" alt="Colourful yarn" style="width: 250px; height: 250px; object-fit: cover;">
+            <p>R180</p>
+            <button class="add-btn" onclick="addToCart('Colourful Yarn', 180, '../images/yarn-85.jpg')">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product 4 -->
+        <div style="text-align: center;">
+            <img src="../images/yarn4.jpg" alt="Pastel yarn" style="width: 250px; height: 250px; object-fit: cover;">
+            <p>R320</p>
+            <button class="add-btn" onclick="addToCart('Pastel Yarn', 320, '../images/yarn4.jpg')">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product 5 -->
+        <div style="text-align: center;">
+            <img src="../images/yarn3.webp" alt="Mixed yarn" style="width: 250px; height: 250px; object-fit: cover;">
+            <p>R150</p>
+            <button class="add-btn" onclick="addToCart('Mixed Yarn', 150, '../images/yarn3.webp')">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ==================== CART SECTION ==================== -->
+    <div style="max-width: 800px; margin: 30px auto; background: #fffff5; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center;">🛒 Your Cart</h2>
+
+        <!-- Cart items get injected here by JavaScript -->
+        <div id="cart-items">
+            <p style="text-align: center; color: #999;">Your cart is empty.</p>
+        </div>
+
+        <!-- Running total -->
+        <div id="cart-total" style="text-align: right; font-size: 22px; font-weight: bold; margin-top: 15px;">Total: R0</div>
+
+        <!-- Checkout button -->
+        <button onclick="checkout()"
+            style="display: block; width: 100%; background-color: #6b4f2a; color: white; border: none; padding: 14px; font-size: 18px; border-radius: 8px; margin-top: 15px; cursor: pointer;">
+            Proceed to Checkout
+        </button>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer style="background-color: #6b4f2a; color: #fff8e7; padding: 40px 20px 15px; margin-top: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+
+            <!-- Column 1: About -->
+            <div>
+                <h3 style="color: #d4a373; margin-bottom: 15px;">Into Yarn</h3>
+                <p style="font-size: 14px; line-height: 1.8;">
+                    Handpicked yarns for every project.
+                    Quality fibres, vibrant colours, and
+                    prices that make crafting a joy.
+                </p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h3 style="color: #d4a373; margin-bottom: 15px;">Quick Links</h3>
+                <a href="Home.html" style="display: block; color: #f5e9d6; text-decoration: none; line-height: 1.8;">Home</a>
+                <a href="About-us.html" style="display: block; color: #f5e9d6; text-decoration: none; line-height: 1.8;">About Us</a>
+                <a href="Product.html" style="display: block; color: #f5e9d6; text-decoration: none; line-height: 1.8;">Products</a>
+                <a href="Enquiry.html" style="display: block; color: #f5e9d6; text-decoration: none; line-height: 1.8;">Enquiry</a>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div>
+                <h3 style="color: #d4a373; margin-bottom: 15px;">Contact</h3>
+                <p style="font-size: 14px;"> 24th Avenue & Pierneef Street, Villieria, Pretoria</p>
+                <p style="font-size: 14px;">084 032 4433</p>
+                <p style="font-size: 14px;">admin@intoyarn.co.za</p>
+            </div>
+
+            <!-- Column 4: Social -->
+            <div>
+                <h3 style="color: #d4a373; margin-bottom: 15px;">Follow Us</h3>
+                <div style="display: flex; gap: 12px;">
+                    <a href="#" style="display: inline-block; width: 36px; height: 36px; background: #d4a373; color: #6b4f2a; border-radius: 50%; text-align: center; line-height: 36px; text-decoration: none;">F</a>
+                    <a href="#" style="display: inline-block; width: 36px; height: 36px; background: #d4a373; color: #6b4f2a; border-radius: 50%; text-align: center; line-height: 36px; text-decoration: none;">I</a>
+                    <a href="#" style="display: inline-block; width: 36px; height: 36px; background: #d4a373; color: #6b4f2a; border-radius: 50%; text-align: center; line-height: 36px; text-decoration: none;">T</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Copyright bar -->
+        <div style="text-align: center; border-top: 1px solid #8b6b45; padding-top: 15px; margin-top: 30px; font-size: 13px; color: #d8c5a5;">
+            © 2025 Into Yarn. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price, image) {
+            cart.push({ name: name, price: price, image: image });
+            total += price;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const cartTotalDiv = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p style="text-align: center; color: #999;">Your cart is empty.</p>';
+            } else {
+                cartItemsDiv.innerHTML = '';
+                cart.forEach((item, index) => {
+                    cartItemsDiv.innerHTML += `
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0;">
+                            <span>${item.name}</span>
+                            <span>R${item.price}</span>
+                        </div>
+                    `;
+                });
+            }
+            cartTotalDiv.innerText = 'Total: R' + total;
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("Your cart is empty! Please add some yarn first.");
+            } else {
+                alert("Proceeding to checkout with " + cart.length + " items. Total: R" + total);
+                // Reset cart after checkout
+                cart = [];
+                total = 0;
+                updateCartUI();
+            }
+        }
+    </script>
+
+</body>
+</html>
