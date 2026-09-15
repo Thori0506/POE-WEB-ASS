@@ -39,5 +39,24 @@ Week and task
 7.	Budget:
 Website development costs in South Africa vary depending on the website’s complexity, design, functionality and required features. A professionally developed small-business website typically costs between R10,000 and R35,000 (Black Snow Agency, 2026).
 
+# Changelog
+
+Site-wide Logo:** Added `logo.webp` to the header navigation on all pages.
+Consistent Footers: Implemented a structured footer with Quick Links, Contact details, and Copyright info on every page.
+Working Contact Form: Added a "Quick Message" form with JavaScript validation to `Contact-us.html`.
+Working Enquiry Form: Created a comprehensive enquiry form with dropdowns and JavaScript validation in `Enquiry.html`.
+Shopping Cart Functionality: Added JavaScript to `Product.html` to allow users to add items to a cart, calculate totals, and proceed to checkout.
+Google Maps:** Embedded a map on `Contact-us.html` to show the store location.
+Changed
+HTML Structure: Replaced invalid `<li>` tags with semantic `<h2>` and `<p>` tags in `About-us.html` and `blog.html`.
+Navigation: Standardized the navigation bar across all HTML files for a consistent user experience.
+Styling: Consolidated styling into `stylesheet.css` and updated it to support the new layout, forms, and product cards.
+Content: Updated the "About Us" page content to be more clearly structured (Background, Mission, Vision, Target Market).
+  
+
+Fixed
+Broken Layouts: Fixed the broken layout on the `About-us.html` and `blog.html` pages caused by invalid HTML nesting.
+Missing Functionality: Fixed the non-functional forms on the Contact and Enquiry pages by adding JavaScript handlers.
+Image Paths: Ensured all image paths (`../images/...`) are consistent across the project.
 
 
