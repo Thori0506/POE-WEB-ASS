@@ -44,6 +44,29 @@ nav a:hover {
         background: rgb(red, green, blue); border: 1px solid; box-shadow: 0 4px 20px rgba(red, green, blue, alpha)
         inset 0 1px 0 rgba(red, green, blue, alpha);
 }
+nav a[aria-current="page"] {
+    color: #d4a373;
+    font-weight: bold;
+    border-bottom: 2px solid #d4a373;
+}
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #d4a373;
+}
+
+/* Active / current page */
+nav a.active,
+nav a[aria-current="page"] {
+    color: #d4a373;
+    font-weight: bold;
+    border-bottom: 2px solid #d4a373;
+}
 
 
 
