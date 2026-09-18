@@ -114,10 +114,11 @@
 
             <!-- Column 3: Contact -->
             <div>
-                <h3 style="color: #d4a373; margin-bottom: 15px;">Contact</h3>
-                <p style="font-size: 14px;"> 24th Avenue & Pierneef Street, Villieria, Pretoria</p>
-                <p style="font-size: 14px;">084 032 4433</p>
-                <p style="font-size: 14px;">admin@intoyarn.co.za</p>
+            <p style="font-size: 18px; margin-bottom: 10px;"><strong>📍 Address:</strong> 24th Avenue & Pierneef Street, Villieria, Pretoria</p>
+            <p style="font-size: 18px; margin-bottom: 10px;"><strong>📞 Phone:</strong> <a href="tel:0840324433" style="color: #007bff; text-decoration: none;">084 032 4433</a></p>
+            <p style="font-size: 18px; margin-bottom: 10px;"><strong>✉️ Email:</strong> <a href="mailto:admin@intoyarn.co.za" style="color: #007bff; text-decoration: none;">admin@intoyarn.co.za</a></p>
+            <p style="font-size: 18px; margin-bottom: 20px;"><strong>🕒 Store Hours:</strong> Mon-Fri (09:00 - 16:00), Sat (09:00 - 13:00), Sun (Closed)</p>
+            
             </div>
 
             <!-- Column 4: Social -->
@@ -138,49 +139,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Cart Functionality -->
-    <script>
-        let cart = [];
-        let total = 0;
-
-        function addToCart(name, price, image) {
-            cart.push({ name: name, price: price, image: image });
-            total += price;
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartItemsDiv = document.getElementById('cart-items');
-            const cartTotalDiv = document.getElementById('cart-total');
-            
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p style="text-align: center; color: #999;">Your cart is empty.</p>';
-            } else {
-                cartItemsDiv.innerHTML = '';
-                cart.forEach((item, index) => {
-                    cartItemsDiv.innerHTML += `
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0;">
-                            <span>${item.name}</span>
-                            <span>R${item.price}</span>
-                        </div>
-                    `;
-                });
-            }
-            cartTotalDiv.innerText = 'Total: R' + total;
-        }
-
-        function checkout() {
-            if(cart.length === 0) {
-                alert("Your cart is empty! Please add some yarn first.");
-            } else {
-                alert("Proceeding to checkout with " + cart.length + " items. Total: R" + total);
-                // Reset cart after checkout
-                cart = [];
-                total = 0;
-                updateCartUI();
-            }
-        }
-    </script>
-
+    
 </body>
 </html>
