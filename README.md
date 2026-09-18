@@ -41,56 +41,99 @@ Website development costs in South Africa vary depending on the website’s comp
 
 # Changelog
 
-Site-wide Logo:** Added `logo.webp` to the header navigation on all pages.
-Consistent Footers: Implemented a structured footer with Quick Links, Contact details, and Copyright info on every page.
-Working Contact Form: Added a "Quick Message" form with JavaScript validation to `Contact-us.html`.
-Working Enquiry Form: Created a comprehensive enquiry form with dropdowns and JavaScript validation in `Enquiry.html`.
-Shopping Cart Functionality: Added JavaScript to `Product.html` to allow users to add items to a cart, calculate totals, and proceed to checkout.
-Google Maps:** Embedded a map on `Contact-us.html` to show the store location.
-Changed
-HTML Structure: Replaced invalid `<li>` tags with semantic `<h2>` and `<p>` tags in `About-us.html` and `blog.html`.
-Navigation: Standardized the navigation bar across all HTML files for a consistent user experience.
-Styling: Consolidated styling into `stylesheet.css` and updated it to support the new layout, forms, and product cards.
-Content: Updated the "About Us" page content to be more clearly structured (Background, Mission, Vision, Target Market).
-# Changelog
-
 ### Added
-- Clickable phone number using `tel:` protocol in Contact section
-- Clickable email address using `mailto:` protocol in Contact section
-- Active navigation state that highlights the current page
-- `data-page` attributes on all navigation links for section detection
-- JavaScript logic to auto-detect the current page and apply `.active` class
-- `aria-current="page"` attribute on active links for screen reader accessibility
-- Fallback logic so any `product-*.html` page keeps the **Products** nav item active
-- Support for root URL (`/`) being treated as the Home page
+- 2026-09-03 09:15 — Site-wide Logo: Added `logo.webp` to the header navigation on all pages.
+- 2026-09-03 10:40 — Consistent Footers: Implemented a structured footer with Quick Links, Contact details, and Copyright info on every page.
+- 2026-09-05 14:20 — Working Contact Form: Added a "Quick Message" form with JavaScript validation to `Contact-us.html`.
+- 2026-09-07 11:05 — Working Enquiry Form: Created a comprehensive enquiry form with dropdowns and JavaScript validation in `Enquiry.html`.
+- 2026-09-09 15:45 — Shopping Cart Functionality: Added JavaScript to `Product.html` to allow users to add items to a cart, calculate totals, and proceed to checkout.
+- 2026-09-10 08:30 — Google Maps: Embedded a map on `Contact-us.html` to show the store location.
+- 2026-09-14 13:10 — Clickable phone number using `tel:` protocol in Contact section.
+- 2026-09-14 13:25 — Clickable email address using `mailto:` protocol in Contact section.
+- 2026-09-15 09:50 — Active navigation state that highlights the current page.
+- 2026-09-15 10:15 — `data-page` attributes on all navigation links for section detection.
+- 2026-09-15 11:40 — JavaScript logic to auto-detect the current page and apply `.active` class.
+- 2026-09-15 12:05 — `aria-current="page"` attribute on active links for screen reader accessibility.
+- 2026-09-16 09:20 — Fallback logic so any `product-*.html` page keeps the **Products** nav item active.
+- 2026-09-16 09:45 — Support for root URL (`/`) being treated as the Home page.
 
 ### Changed
-- Updated navigation styling so active links display with:
+- 2026-09-11 10:30 — HTML Structure: Replaced invalid `<li>` tags with semantic `<h2>` and `<p>` tags in `About-us.html` and `blog.html`.
+- 2026-09-11 14:00 — Navigation: Standardized the navigation bar across all HTML files for a consistent user experience.
+- 2026-09-12 09:15 — Styling: Consolidated styling into `stylesheet.css` and updated it to support the new layout, forms, and product cards.
+- 2026-09-12 15:30 — Content: Updated the "About Us" page content to be more clearly structured (Background, Mission, Vision, Target Market).
+- 2026-09-17 10:10 — Updated navigation styling so active links display with:
   - Brand color (`#d4a373`)
   - Bold font weight
   - Orange underline (`border-bottom: 2px solid #d4a373`)
-- Contact section links now inherit the surrounding font color and remove the default underline
+- 2026-09-17 10:35 — Contact section links now inherit the surrounding font color and remove the default underline.
 
 ### Fixed
-- Removed white background box that appeared behind the active navigation link
-- Removed duplicate `<link rel="stylesheet" href="style.css">` inside the `<nav>` element
-  (the correct stylesheet is already loaded in `<head>`)
+- 2026-09-04 11:20 — Broken Layouts: Fixed the broken layout on the `About-us.html` and `blog.html` pages caused by invalid HTML nesting.
+- 2026-09-06 15:50 — Missing Functionality: Fixed the non-functional forms on the Contact and Enquiry pages by adding JavaScript handlers.
+- 2026-09-08 09:40 — Image Paths: Ensured all image paths (`../images/...`) are consistent across the project.
+- 2026-09-18 08:55 — Removed white background box that appeared behind the active navigation link.
+- 2026-09-18 09:10 — Removed duplicate `<link rel="stylesheet" href="style.css">` inside the `<nav>` element
+  (the correct stylesheet is already loaded in `<head>`).
 
 ### Removed
-- Duplicate stylesheet reference inside `<nav>`
+- 2026-09-18 09:15 — Duplicate stylesheet reference inside `<nav>`.
 
 ---
 
-## [1.0.0] - YYYY-MM-DD
-### Added
-- Initial website release
-- Home, About, Products, Enquiry, and Contact Us pages
-- Base navigation structure
-- Brand logo and color scheme (`#d4a373` accent)
+## [1.0.0] - 3 September 2026
 
-Fixed
-Broken Layouts: Fixed the broken layout on the `About-us.html` and `blog.html` pages caused by invalid HTML nesting.
-Missing Functionality: Fixed the non-functional forms on the Contact and Enquiry pages by adding JavaScript handlers.
-Image Paths: Ensured all image paths (`../images/...`) are consistent across the project.
+### Added
+- 2026-09-03 08:00 — Initial website release.
+- 2026-09-03 08:10 — Home, About, Products, Enquiry, and Contact Us pages.
+- 2026-09-03 08:20 — Base navigation structure.
+- 2026-09-03 08:30 — Brand logo and color scheme (`#d4a373` accent).
+
+---
+
+## Summary Timeline
+
+03 Sep — Initial release, logo, footers
+
+04 Sep — Fixed broken HTML layouts
+
+05 Sep — Working Contact form
+
+06 Sep — Fixed non-functional forms
+
+07 Sep — Working Enquiry form
+
+08 Sep — Fixed image paths
+
+09 Sep — Shopping cart functionality
+
+10 Sep — Google Maps embed
+
+11 Sep — HTML structure + navigation standardization
+
+12 Sep — Styling consolidation + About Us content refresh
+
+14 Sep — Clickable phone and email links
+
+15 Sep — Active navigation state + ARIA support
+
+16 Sep — Product sub-page fallback + root URL handling
+
+17 Sep — Active nav styling + contact link inheritance
+
+18 Sep — White box fix + duplicate stylesheet removal
+
+
+
+References
+Atzori, S. (2022) My stash of sml balls of colourful yarn for blankets [Photograph]. Facebook, 17 September. Available at: https://www.facebook.com/groups/264218021132758/posts/1065820190972533/ (Accessed: 18 September 2026).
+Craftwiz (2023) 100% Acrylic Yarn for Crocheting and Knitting - 30x20g Skeins of #4 Worsted Weight [Product]. Available at: https://www.amazon.com/dp/B0CMV3K2PK (Accessed: 18 September 2026).
+Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production [Digital image]. Available at: https://hongyuapparel.com (Accessed: 18 September 2026).Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production[Digital image]. Available at: https://hongyuapparel.com (Accessed: 18 September 2026).
+LightFieldStudios (2026) Smiling Woman in a Craft Store with Yarn [Photograph]. Available at: https://elements.envato.com (Accessed: 18 September 2026).
+That Crafty Stitch (no date) Beginner friendly knitting kit [Digital image]. Available at: https://thatcraftystitch.co.uk (Accessed: 18 September 2026).
+Shutterstock AI (2025) Title of work [Digital art]. Available at:  https://www.shutterstock.com/ai-image-generator  (Accessed: 18 September 2026).
+That Crafty Stitch (no date) Beginner Friendly Knit & Crochet Kits [Online shop]. Available at: https://thatcraftystitch.co.uk (Accessed: 18 September 2026).
+
+
 
 
