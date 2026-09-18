@@ -1,0 +1,453 @@
+/* ============================================================
+   HEADER + NAVIGATION
+   ============================================================ */
+
+header {
+    background-color: lightblue;
+    color: cornflowerblue;
+    margin: 20px;
+    text-align: center;
+    padding: 20px 15px;
+}
+
+header h1 {
+    margin: 0 0 15px;
+    color: thistle;
+}
+
+nav {
+    margin-top: 10px;
+    display: flex;                 /* lay links horizontally */
+    justify-content: center;       /* centre them */
+    align-items: center;
+    flex-wrap: wrap;               /* wrap on small screens */
+    gap: 25px;                     /* space between links */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+nav a:hover {
+    color: hotpink;
+    border-bottom-color: hotpink;
+}
+#demo {
+
+        transition: all; cursor: pointer; position: relative; overflow: hidden;
+        display: block; max-width: none; margin: 2.5rem auto; padding: 2rem;
+        background: rgb(red, green, blue); border: 1px solid; box-shadow: 0 4px 20px rgba(red, green, blue, alpha)
+        inset 0 1px 0 rgba(red, green, blue, alpha);
+}
+
+
+
+/* =========================================
+   INTO YARN - MAIN STYLESHEET
+
+/* --- Variables & Reset --- */
+:root {
+    --bg-color: #F9F6F0; /* Warm cream */
+    --text-main: #333333; /* Soft black */
+    --text-light: #666666;
+    --accent-color: #8B5A2B; /* Warm terracotta/brown */
+    --accent-hover: #6A4420;
+    --footer-bg: #2C2C2C;
+    --footer-text: #E0E0E0;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Navigation --- */
+nav {
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* --- Layout Containers --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* --- Images --- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* --- Lists (About Us / Blog) --- */
+ul.custom-list {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+ul.custom-list li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul.custom-list li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 0;
+}
+
+.product-card p {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.add-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Cart Section --- */
+.cart-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.checkout-btn {
+    background-color: var(--text-main);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #000;
+}
+
+/* --- Forms (Enquiry) --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 50px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+footer h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+footer p, footer a {
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    text-decoration: none;
+    line-height: 2;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+/* ============================================================
+   INTO YARN — FOOTER STYLES (Responsive)
+   ============================================================ */
+
+/* --- Global reset (helps layout stay predictable) --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* --- Sticky footer layout --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fdfaf3;
+    color: #333;
+}
+
+main {
+    flex: 1;                 /* pushes footer to bottom on short pages */
+    padding: 20px;
+}
+
+/* --- Footer container --- */
+footer {
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+    padding: 40px 20px 0;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* --- Footer grid (3 columns on desktop) --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+/* --- Footer headings --- */
+footer h3 {
+    color: #f0c987;
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- Footer text --- */
+footer p {
+    margin: 6px 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- Footer links --- */
+footer a {
+    display: block;
+    color: #f5f5f5;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #f0c987;
+    padding-left: 4px;
+    outline: none;
+}
+
+/* --- Bottom copyright bar --- */
+.footer-bottom {
+    border-top: 1px solid #555;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.85rem;
+    color: #ccc;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- Tablets (≤ 768px) --- */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 18px 0;
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;   /* 2 columns */
+        gap: 25px;
+    }
+
+    footer a {
+        display: inline-block;            /* links sit side by side */
+        margin: 4px 8px;
+    }
+
+    footer a:hover,
+    footer a:focus {
+        padding-left: 0;
+    }
+}
+
+/* --- Small phones (≤ 480px) --- */
+@media (max-width: 480px) {
+    footer {
+        padding: 25px 15px 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;       /* single column */
+        gap: 20px;
+        text-align: center;
+    }
+
+    footer h3 {
+        font-size: 1rem;
+    }
+
+    footer p,
+    footer a {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding: 12px 8px;
+    }
+}
+
+/* --- Large screens (≥ 1400px) --- */
+@media (min-width: 1400px) {
+    .footer-grid {
+        max-width: 1200px;
+    }
+}
