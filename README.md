@@ -52,7 +52,41 @@ HTML Structure: Replaced invalid `<li>` tags with semantic `<h2>` and `<p>` tags
 Navigation: Standardized the navigation bar across all HTML files for a consistent user experience.
 Styling: Consolidated styling into `stylesheet.css` and updated it to support the new layout, forms, and product cards.
 Content: Updated the "About Us" page content to be more clearly structured (Background, Mission, Vision, Target Market).
-  
+# Changelog
+
+### Added
+- Clickable phone number using `tel:` protocol in Contact section
+- Clickable email address using `mailto:` protocol in Contact section
+- Active navigation state that highlights the current page
+- `data-page` attributes on all navigation links for section detection
+- JavaScript logic to auto-detect the current page and apply `.active` class
+- `aria-current="page"` attribute on active links for screen reader accessibility
+- Fallback logic so any `product-*.html` page keeps the **Products** nav item active
+- Support for root URL (`/`) being treated as the Home page
+
+### Changed
+- Updated navigation styling so active links display with:
+  - Brand color (`#d4a373`)
+  - Bold font weight
+  - Orange underline (`border-bottom: 2px solid #d4a373`)
+- Contact section links now inherit the surrounding font color and remove the default underline
+
+### Fixed
+- Removed white background box that appeared behind the active navigation link
+- Removed duplicate `<link rel="stylesheet" href="style.css">` inside the `<nav>` element
+  (the correct stylesheet is already loaded in `<head>`)
+
+### Removed
+- Duplicate stylesheet reference inside `<nav>`
+
+---
+
+## [1.0.0] - YYYY-MM-DD
+### Added
+- Initial website release
+- Home, About, Products, Enquiry, and Contact Us pages
+- Base navigation structure
+- Brand logo and color scheme (`#d4a373` accent)
 
 Fixed
 Broken Layouts: Fixed the broken layout on the `About-us.html` and `blog.html` pages caused by invalid HTML nesting.
