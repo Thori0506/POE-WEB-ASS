@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forms</title>
+    <script src="javascript"></script>
+</head>
+<body>
+    <p id="display"></p>
+    <form id="form1" method="get" action="#">
+        <input type="text" placeholder="Name"></label><br>
+        <input type="text" placeholder="username" required><br>
+        <input id="password" placeholder="password" required><br>
+        <button onclick="testInput()">Submit</button>
+        <input type="password" id="password">
+        <button onclick="testInput()">check</button>
+        <p id="display"></p>
+        </form>
+
+
+<script>   
+let emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let emailuser = document.getElementById("email").value;
+let isvalid = emailpattern.test(emailuser);
+if (isValid) {
+    document.getElementById("display").innerHTML = "Email is valid.";
+} 
+else {
+    document.getElementById("display").innerHTML = "Email is invalid.";
+    document.getElementById("emailDisplay").style.color = "red";
+}
+ </script>
+
+          
+
+
+
+</body>
+<p id="display"></p>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lightbox</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --text: #1d2330;
+    --overlay: rgba(12, 15, 22, 0.92);
+    --accent: #3b6fd4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  h1 { font-size: 1.5rem; margin: 0 auto 1.25rem; max-width: 960px; }
+
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .gallery a {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #dde1e8;
+  }
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .25s ease;
+  }
+  .gallery a:hover img { transform: scale(1.04); }
+  .gallery a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+
+  .lb {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--overlay);
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .lb.is-open { display: flex; }
+  .lb.is-visible { opacity: 1; }
+
+  .lb__figure {
+    margin: 0;
+    max-width: 92vw;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lb__img {
+    max-width: 92vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    transition: opacity .15s ease;
+  }
+  .lb__img.is-loading { opacity: 0; }
+  .lb__caption {
+    margin-top: .75rem;
+    color: #e6e9f0;
+    font-size: .95rem;
+    text-align: center;
+    max-width: 70ch;
+  }
+  .lb__count {
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    color: #aab2c2;
+    font-size: .9rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .lb__btn {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .15s ease;
+  }
+  .lb__btn:hover { background: rgba(255,255,255,.22); }
+  .lb__btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  .lb__close { top: 1rem; right: 1rem; }
+  .lb__prev  { left: 1rem;  top: 50%; transform: translateY(-50%); }
+  .lb__next  { right: 1rem; top: 50%; transform: translateY(-50%); }
+  .lb--single .lb__prev,
+  .lb--single .lb__next,
+  .lb--single .lb__count { display: none; }
+
+  @media (max-width: 600px) {
+    .lb__prev, .lb__next { top: auto; bottom: 1rem; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lb, .lb__img, .gallery img { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Gallery</h1>
+
+
+
+<div class="gallery" data-lightbox>
+  <a href="https://picsum.photos/id/1015/1600/1000" data-caption="River valley from above">
+    <img src="https://picsum.photos/id/1015/400/300" alt="River valley from above" loading="lazy">
+  </a>
+  <a href="https://picsum.photos/id/1016/1600/1000" data-caption="Canyon at dusk">
+    <img src="https://picsum.photos/id/1016/400/300" alt="Canyon at dusk" loading="lazy">
+  </a>
+  <a href="https://picsum.photos/id/1018/1600/1000" data-caption="Mountains in morning mist">
+    <img src="https://picsum.photos/id/1018/400/300" alt="Mountains in morning mist" loading="lazy">
+  </a>
+  <a href="https://picsum.photos/id/1019/1600/1000" data-caption="Coastline and fog">
+    <img src="https://picsum.photos/id/1019/400/300" alt="Coastline and fog" loading="lazy">
+  </a>
+  <a href="https://picsum.photos/id/1020/1600/1000" data-caption="Brown bear by the water">
+    <img src="https://picsum.photos/id/1020/400/300" alt="Brown bear by the water" loading="lazy">
+  </a>
+  <a href="https://picsum.photos/id/1021/1600/1000" data-caption="Forest trail">
+    <img src="https://picsum.photos/id/1021/400/300" alt="Forest trail" loading="lazy">
+  </a>
+</div>
+
+<script>
+(function () {
+  const galleries = document.querySelectorAll('[data-lightbox]');
+  if (!galleries.length) return;
+
+
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', 'Image viewer');
+  lb.innerHTML = `
+    <span class="lb__count" aria-live="polite"></span>
+    <button class="lb__btn lb__close" aria-label="Close">&times;</button>
+    <button class="lb__btn lb__prev" aria-label="Previous image">&#8249;</button>
+    <figure class="lb__figure">
+      <img class="lb__img" alt="">
+      <figcaption class="lb__caption"></figcaption>
+    </figure>
+    <button class="lb__btn lb__next" aria-label="Next image">&#8250;</button>
+  `;
+  document.body.appendChild(lb);
+
+  const imgEl   = lb.querySelector('.lb__img');
+  const capEl   = lb.querySelector('.lb__caption');
+  const countEl = lb.querySelector('.lb__count');
+  const closeBtn = lb.querySelector('.lb__close');
+  const prevBtn  = lb.querySelector('.lb__prev');
+  const nextBtn  = lb.querySelector('.lb__next');
+
+  let items = [];
+  let index = 0;
+  let lastFocus = null;
+
+  function show(i) {
+    index = (i + items.length) % items.length;
+    const link = items[index];
+    const thumb = link.querySelector('img');
+    const src = link.getAttribute('href');
+    const caption = link.dataset.caption || (thumb && thumb.alt) || '';
+
+    imgEl.classList.add('is-loading');
+    const loader = new Image();
+    loader.onload = loader.onerror = function () {
+      imgEl.src = src;
+      imgEl.alt = (thumb && thumb.alt) || caption;
+      imgEl.classList.remove('is-loading');
+    };
+    loader.src = src;
+
+    capEl.textContent = caption;
+    countEl.textContent = (index + 1) + ' / ' + items.length;
+
+    [index + 1, index - 1].forEach(function (n) {
+      const nb = items[(n + items.length) % items.length];
+      if (nb) new Image().src = nb.getAttribute('href');
+    });
+  }
+
+  function open(gallery, link) {
+    items = Array.from(gallery.querySelectorAll('a[href]'));
+    lastFocus = document.activeElement;
+    lb.classList.toggle('lb--single', items.length < 2);
+    lb.classList.add('is-open');
+    requestAnimationFrame(function () { lb.classList.add('is-visible'); });
+    document.body.style.overflow = 'hidden';
+    show(items.indexOf(link));
+    closeBtn.focus();
+  }
+
+  function close() {
+    lb.classList.remove('is-visible');
+    setTimeout(function () {
+      lb.classList.remove('is-open');
+      imgEl.removeAttribute('src');
+    }, 200);
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+ 
+  galleries.forEach(function (g) {
+    g.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link || !g.contains(link)) return;
+      e.preventDefault();
+      open(g, link);
+    });
+  });
+
+ 
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function () { show(index - 1); });
+  nextBtn.addEventListener('click', function () { show(index + 1); });
+
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) close();
+  });
+
+ 
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(index - 1);
+    else if (e.key === 'ArrowRight') show(index + 1);
+    else if (e.key === 'Tab') {
+      const focusable = Array.from(lb.querySelectorAll('button')).filter(function (b) {
+        return b.offsetParent !== null;
+      });
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  
+  let startX = 0;
+  lb.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
+</body>
+</html>

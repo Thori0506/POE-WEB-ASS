@@ -1,0 +1,22 @@
+function testInput() {
+    let password = document.getElementById("password").value;
+    if (password.length < 8) {
+        document.getElementById("display").innerHTML = "Password must be at least 8 characters long.";
+    } else {
+        document.getElementById("display").innerHTML = "Password is ok.";
+    
+}
+  else if (password.length < 12) {
+        document.getElementById("display").innerHTML = "strong.";
+
+    }
+    else {
+        document.getElementById("display").innerHTML = "Password too long.";
+    }   
+    if (missing.length > 0) {
+        MessageChannel.textContent = "Password:weeak " + missing.join(", ");
+        return false;
+    }
+    MessageChannel.textContent = "Password is strong.";
+    return true;
+}
