@@ -57,6 +57,7 @@ Website development costs in South Africa vary depending on the website’s comp
 - 2026-09-16 09:20 — Fallback logic so any `product-*.html` page keeps the **Products** nav item active.
 - 2026-09-16 09:45 — Support for root URL (`/`) being treated as the Home page.
 
+
 ### Changed
 - 2026-09-11 10:30 — HTML Structure: Replaced invalid `<li>` tags with semantic `<h2>` and `<p>` tags in `About-us.html` and `blog.html`.
 - 2026-09-11 14:00 — Navigation: Standardized the navigation bar across all HTML files for a consistent user experience.
@@ -126,13 +127,13 @@ Website development costs in South Africa vary depending on the website’s comp
 
 
 References
-Atzori, S. (2022) My stash of sml balls of colourful yarn for blankets [Photograph]. Facebook, 17 September. Available at: https://www.facebook.com/groups/264218021132758/posts/1065820190972533/ (Accessed: 18 September 2026).
+Atzori, S. (2022) My stash of sml balls of colourful yarn for blankets [Photograph]. Facebook, 17 September. Available at: https://www.facebook.com/groups/264218021132758/posts/1065820190972533/ (Accessed: 18 October 2026).
 Craftwiz (2023) 100% Acrylic Yarn for Crocheting and Knitting - 30x20g Skeins of #4 Worsted Weight [Product]. Available at: https://www.amazon.com/dp/B0CMV3K2PK (Accessed: 18 September 2026).
-Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production [Digital image]. Available at: https://hongyuapparel.com (Accessed: 18 September 2026).Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production[Digital image]. Available at: https://hongyuapparel.com (Accessed: 18 September 2026).
-LightFieldStudios (2026) Smiling Woman in a Craft Store with Yarn [Photograph]. Available at: https://elements.envato.com (Accessed: 18 September 2026).
-That Crafty Stitch (no date) Beginner friendly knitting kit [Digital image]. Available at: https://thatcraftystitch.co.uk (Accessed: 18 September 2026).
-Shutterstock AI (2025) Title of work [Digital art]. Available at:  https://www.shutterstock.com/ai-image-generator  (Accessed: 18 September 2026).
-That Crafty Stitch (no date) Beginner Friendly Knit & Crochet Kits [Online shop]. Available at: https://thatcraftystitch.co.uk (Accessed: 18 September 2026).
+Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production [Digital image]. Available at: https://hongyuapparel.com (Accessed: 29 October 2026).Hongyu Apparel (2024) 7 Essential Steps in Knitwear Production[Digital image]. Available at: https://hongyuapparel.com (Accessed: 18 September 2026).
+LightFieldStudios (2026) Smiling Woman in a Craft Store with Yarn [Photograph]. Available at: https://elements.envato.com (Accessed: 30 October 2026).
+That Crafty Stitch (no date) Beginner friendly knitting kit [Digital image]. Available at: https://thatcraftystitch.co.uk (Accessed: 30 October 2026).
+Shutterstock AI (2025) Title of work [Digital art]. Available at:  https://www.shutterstock.com/ai-image-generator  (Accessed: 31 October 2026).
+That Crafty Stitch (no date) Beginner Friendly Knit & Crochet Kits [Online shop]. Available at: https://thatcraftystitch.co.uk (Accessed: 1 November 2026).
 
 
 
