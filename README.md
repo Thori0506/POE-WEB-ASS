@@ -56,6 +56,13 @@ Website development costs in South Africa vary depending on the website’s comp
 - 2026-09-15 12:05 — `aria-current="page"` attribute on active links for screen reader accessibility.
 - 2026-09-16 09:20 — Fallback logic so any `product-*.html` page keeps the **Products** nav item active.
 - 2026-09-16 09:45 — Support for root URL (`/`) being treated as the Home page.
+- 2026-09-11 10:30 - HTML structure: replaced invalid <li> tags with <h2> and <p> in About-us.html and blog.html.
+2026-10-28 14:00 - Navigation: standardised the navigation bar across all HTML files.
+2026-10-28 09:15 - Styling: consolidated styling into stylesheet.css to support the new layout, forms and product cards.
+2026-10-29 15:30 - Content: restructured the About Us page (Background, Mission, Vision, Target Market).
+2026-10-30 10:10 - Active navigation links now use the brand colour (
+#d4a373), bold weight and an orange underline (border-bottom: 2px solid #d4a373).
+2026-10-30 10:35 - Contact section links inherit the surrounding font colour and have no default underline.
 
 
 ### Changed
@@ -68,14 +75,21 @@ Website development costs in South Africa vary depending on the website’s comp
   - Bold font weight
   - Orange underline (`border-bottom: 2px solid #d4a373`)
 - 2026-09-17 10:35 — Contact section links now inherit the surrounding font color and remove the default underline.
+- Styling: replaced stylesheet.css and the older style.css with a single mobile-first css/style.css that uses CSS variables. Brand colour changed to a darker brown (
+#6b4f2a) so text passes contrast on white; the earlier 
+#d4a373 is kept for decorative accents only. Responsive breakpoints at 600px and 800px.
+- Scripts: replaced the page-by-page scripts with one main.js (v2.0.0). Each feature only starts if its elements exist on the current page.
+- File names: page names changed from Home.html, About-us.html, Contact-us.html, Product.html and Enquiry.html to index.html, about.html, contact.html, products.html and enquiry.html.
+- Images: the working image set was renamed with descriptive names (for example rainbow-yarn-colour-wall.jpg) and moved into into-yarn/images/. Image paths are now worked out from where main.js loads, so they resolve from both index.html and root/ pages.
+= Home page: now has a hero section, a "What is yarn?" explainer, featured products and a photo gallery.
+- Navigation: the Cart link now appears in the main navigation on every page.
 
 ### Fixed
-- 2026-09-04 11:20 — Broken Layouts: Fixed the broken layout on the `About-us.html` and `blog.html` pages caused by invalid HTML nesting.
-- 2026-09-06 15:50 — Missing Functionality: Fixed the non-functional forms on the Contact and Enquiry pages by adding JavaScript handlers.
-- 2026-09-08 09:40 — Image Paths: Ensured all image paths (`../images/...`) are consistent across the project.
-- 2026-09-18 08:55 — Removed white background box that appeared behind the active navigation link.
-- 2026-09-18 09:10 — Removed duplicate `<link rel="stylesheet" href="style.css">` inside the `<nav>` element
-  (the correct stylesheet is already loaded in `<head>`).
+2026-10-04 11:20 - Broken layouts on About-us.html and blog.html caused by invalid HTML nesting.
+2026-10-06 15:50 - Non-functional forms on the Contact and Enquiry pages (added JavaScript handlers).
+2026-10-08 09:40 - Image paths (../images/...) made consistent across the project.
+2026-10-18 08:55 - Removed the white background box behind the active navigation link.
+2026-10-18 09:10 - Removed a duplicate <link rel="stylesheet" href="style.css"> inside <nav>
 
 ### Removed
 - 2026-09-18 09:15 — Duplicate stylesheet reference inside `<nav>`.
@@ -123,6 +137,13 @@ Website development costs in South Africa vary depending on the website’s comp
 17 Sep — Active nav styling + contact link inheritance
 
 18 Sep — White box fix + duplicate stylesheet removal
+
+26 Oct — Part 3 build under way (search, lightbox, SEO tags, email sending planned)
+
+31 Oct — Editing website pages, error checking
+
+01 Nov —Finishing touches
+
 
 
 
